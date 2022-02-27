@@ -81,8 +81,7 @@ llllllllloMdcccccccccccoWK000000000
   .XMMMMMMMMMMMMMMMMMMMMMMMMK.
     kMMMMMMMMMMMMMMMMMMMMMMd
      ;KMMMMMMMWXXWMMMMMMMk.
-       .cooc,.    .,coo:.
-`,
+       .cooc,.    .,coo:.`,
   },
 };
 Neofetch.getData = function (opts) {
