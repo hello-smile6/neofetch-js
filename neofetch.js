@@ -42,6 +42,7 @@ Neofetch.getData = function(opts) {
     let cfg={
         os: "Linux", // Assume the most likely
         browser: "", // Sadly, most likely
+        lineEnding: "\n",
     };
     if(typeof window=="object" && typeof Window!=="undefined") {
         // Verify that it is, indeed, a browser
@@ -60,20 +61,22 @@ Neofetch.getData = function(opts) {
     if(typeof opts=="object") {
         // Process options
         cfg.os=opts?.os || cfg?.os;
+        cfg.browser=opts?.browser || cfg?.browser;
+        cfg.lineEnding=opts?.lineEnding || cfg?.lineEnding;
     }
     
     let output="";
     // Each output must make sure there is exactly one (1) newline after it.
     if (cfg.os=="Windows") {
-        output+="Icon:\n"+oses.windows+"\n";
+        output+="Icon:"+lineEnding+oses.windows.replaceAll("\n",lineEnding)+lineEnding;
     } else {
         if (cfg.os=="Chrome OS") {
-            output+="Icon:\n"+oses.chrome+"\n";
+            output+="Icon:\n"+oses.chrome.replaceAll("\n",lineEnding)+lineEnding;
         } else {
             if (cfg.browser=="Chrome") {
-                output+="Icon:\n"+oses.chrome+"\n\nWe didn't have your OS icon, so we used your browser icon instead.\n";
+                output+="Icon:\n"+oses.chrome.replaceAll("\n",lineEnding)+lineEnding+lineEnding+"We didn't have your OS icon, so we used your browser icon instead."+lineEnding;
             } else {
-                output+="Icon: Not Implemented\n"
+                output+="Icon: Not Implemented"+lineEnding;
             }
         }
     }

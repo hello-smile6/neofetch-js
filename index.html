@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neofetch.js demo</title>
+    <!--
+        Open-source analytics.
+        https://counter.dev/
+        https://github.com/ihucos/counter.dev
+    -->
+    <script>if(
+        !sessionStorage.getItem("_swa")&&
+        document.referrer.indexOf(location.protocol+"//"+location.host)!== 0
+        ){
+            fetch("https://counter.dev/track?"+new URLSearchParams({
+                referrer:document.referrer,
+                screen:screen.width+"x"+screen.height,
+                user:"9pfs",
+                utcoffset:"-8"
+            }))
+            .catch(function() {
+                fetch("https://cors-anywhere.9pfs.repl.co/counter.dev/track?"+new URLSearchParams({ // I get why people don't want analytics, but I need data...
+                referrer:document.referrer,
+                screen:screen.width+"x"+screen.height,
+                user:"9pfs",
+                utcoffset:"-8"
+            })).catch(function() {
+                sessionStorage.removeItem("_swa"); // Send data next time
+            })
+            })
+        };
+        sessionStorage.setItem("_swa","1");
+    </script>
+    <!--
+        Tip: use cdn.jsdelivr.net for everything, even dynamic content. It'll cache your files, so your site will load faster. Also, it minifies your content. No, it can't minify HTML.
+    -->
+    <!--
+        Might help enabling during development
+        <script src="./neofetch.js"></script>
+    -->
+    <script src="https://cdn.jsdelivr.net/gh/hello-smile6/neofetch-js@master/neofetch.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xterm"></script>
+</head>
+<body>
+    <div id="terminal"></div>
+    <script>
+        const $={
+            id: function(id) { // Trick I saw @copy on gh do to make files smaller
+                // Defining a string from the id so we don't fail if it's not a string.
+                return document.getElementById(String(id));
+            }
+        };
+        if(window.location.hash=="debug") {
+            // Make it easy to get into debug mode and step through every function call
+            debugger;
+        }
+        const term=new Terminal();
+        term.open($id("terminal"));
+        term.write(neofetch({
+            lineEnding: "\r\n",
+        }));
+    </script>
+</body>
+</html>
