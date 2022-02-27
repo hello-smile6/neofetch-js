@@ -183,6 +183,7 @@ Neofetch.getData = function (opts) {
     if (typeof opts?.os == "string") cfg.os = opts.os;
     if (typeof opts?.browser == "string") cfg.browser = opts.browser;
     if (typeof opts?.lineEnding == "string") cfg.lineEnding = opts.lineEnding;
+    if (typeof opts?.allowColor == "boolean") cfg.allowColor = opts.allowColor;
   }
 
   let output = "";
@@ -199,6 +200,7 @@ Neofetch.getData = function (opts) {
       "We didn't have your OS icon, so we used your browser icon instead." +
       cfg.lineEnding;
   }
+  if
   return output;
 };
 if (typeof process !== "undefined") {
