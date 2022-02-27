@@ -15,7 +15,8 @@
             location.hostname.endsWith(".local") || 
             (
                 location.port !== 80 &&
-                location.port !== 433
+                location.port !== 433 &&
+                location.port !== ""
             ) || 
             location.hostname.endsWith(".lan") || 
             !(location.hostname.includes("."))
