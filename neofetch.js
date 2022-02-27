@@ -98,7 +98,7 @@ Neofetch.getData = function(opts) {
                       cfg.os = "Mac"
                     }
                   // iOS detection
-                    if (navigator.userAgent.includes("iPhone")) {
+                    if (navigator.userAgent.includes("iPhone OS")) {
                       // They give the same logo so it doesn't matter
                       cfg.os = "Mac"
                     }
