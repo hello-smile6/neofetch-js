@@ -102,7 +102,6 @@ Neofetch.getData = function(opts) {
                       // They give the same logo so it doesn't matter
                       cfg.os = "Mac"
                     }
-                  // iPadOS
                 }
             }
             if(navigator?.vendor=="Google Inc.") cfg.browser="Chrome";
