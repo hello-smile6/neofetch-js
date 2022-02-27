@@ -79,23 +79,25 @@ llllllllloMdcccccccccccoWK000000000
   mac: {
     names: ["Mac", "iOS"],
     // @prettier-ignore start
-    ascii: `                    'c. 
-                 ,xNMM.
-               .OMMMMo
-               OMMM0,
-     .;loddo:' loolloddol;.
-   cKMMMMMMMMMMNWMMMMMMMMMM0:
- .KMMMMMMMMMMMMMMMMMMMMMMMWd.
- XMMMMMMMMMMMMMMMMMMMMMMMX.
-;MMMMMMMMMMMMMMMMMMMMMMMM:
+    ascii: `[?25l[?7l[0m[32m[1m                    c.'
+    ,xNMM.
+  .OMMMMo
+  lMM"
+.;loddo:.  .olloddol;.
+cKMMMMMMMMMMNWMMMMMMMMMM0:
+[0m[33m[1m .KMMMMMMMMMMMMMMMMMMMMMMMWd.
+XMMMMMMMMMMMMMMMMMMMMMMMX.
+[0m[31m[1m;MMMMMMMMMMMMMMMMMMMMMMMM:
 :MMMMMMMMMMMMMMMMMMMMMMMM:
-.MMMMMMMMMMMMMMMMMMMMMMMMX. 
- kMMMMMMMMMMMMMMMMMMMMMMMMWd.
- .XMMMMMMMMMMMMMMMMMMMMMMMMMMk
-  .XMMMMMMMMMMMMMMMMMMMMMMMMK.
-    kMMMMMMMMMMMMMMMMMMMMMMd
-     ;KMMMMMMMWXXWMMMMMMMk.
-       .cooc,.    .,coo:.`,
+[0m[31m[1m.MMMMMMMMMMMMMMMMMMMMMMMMX.
+kMMMMMMMMMMMMMMMMMMMMMMMMWd.
+[0m[35m[1m'XMMMMMMMMMMMMMMMMMMMMMMMMMMk
+'XMMMMMMMMMMMMMMMMMMMMMMMMK.
+[0m[34m[1mkMMMMMMMMMMMMMMMMMMMMMMd
+;KMMMMMMMWXXWMMMMMMMk.
+"cooc*"    "*coo'"[0m
+[17A[9999999D
+[?25h[?7h`,
     // @prettier-ignore end
   },
   unknown: {
