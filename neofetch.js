@@ -43,23 +43,26 @@ Neofetch.osList = {
   chrome: {
     names: ["Chrome", "Chrome OS"],
     // @prettier-ignore start
-    ascii: `        .,coooooooooooooc,.
-    .,lllllllllllllllllllll,.
-   ;ccccccccccccccccccccccccc;
- 'ccccccccccccccccccccccccccccc.
-,ooc::::::::okO0000OOkkkkkkkkkkk:
-.ooool;;;;:xK0kxxxxxk0XK0000000000.
-:oooool;,;OKdddddddddddKX000000000d
-lllllool;lNdllllllllllldNK000000000
-llllllllloMdcccccccccccoWK000000000
-;cllllllllXXc:::::::::c0X000000000d
-.ccccllllllONkc;,,,;cxKK0000000000.
-.cccccclllllxOOOOOOkxO0000000000;
- .:cccccccclllllllloO0000000OOO,
-   ,:ccccccccclllcd0000OOOOOOl.
-     '::cccccccccdOOOOOOOkx:.
-       ..,::ccccxOOOkkko;.
-           ..,:dOkxl:.`,
+    ascii: `[?25l[?7l[0m[31m[1m            .,:loool:,.
+        .,coooooooooooooc,.
+     .,lllllllllllllllllllll,.
+    ;ccccccccccccccccccccccccc;
+[0m[32m[1m  '[0m[31m[1mccccccccccccccccccccccccccccc.
+[0m[32m[1m ,oo[0m[31m[1mc::::::::okO[37m[0m[1m000[0m[33m[1m0OOkkkkkkkkkkk:
+[0m[32m[1m.ooool[0m[31m[1m;;;;:x[37m[0m[1mK0[0m[34m[1mkxxxxxk[37m[0m[1m0X[0m[33m[1mK0000000000.
+[0m[32m[1m:oooool[0m[31m[1m;,;O[37m[0m[1mK[0m[34m[1mddddddddddd[37m[0m[1mKX[0m[33m[1m000000000d
+[0m[32m[1mlllllool[0m[31m[1m;l[37m[0m[1mN[0m[34m[1mdllllllllllld[37m[0m[1mN[0m[33m[1mK000000000
+[0m[32m[1mlllllllll[0m[31m[1mo[37m[0m[1mM[0m[34m[1mdccccccccccco[37m[0m[1mW[0m[33m[1mK000000000
+[0m[32m[1m;cllllllllX[37m[0m[1mX[0m[34m[1mc:::::::::c[37m[0m[1m0X[0m[33m[1m000000000d
+[0m[32m[1m.ccccllllllO[37m[0m[1mNk[0m[34m[1mc;,,,;cx[37m[0m[1mKK[0m[33m[1m0000000000.
+[0m[32m[1m .cccccclllllxOO[37m[0m[1mOOO[0m[32m[1mOkx[0m[33m[1mO0000000000;
+[0m[32m[1m  .:ccccccccllllllllo[0m[33m[1mO0000000OOO,
+[0m[32m[1m    ,:ccccccccclllcd[0m[33m[1m0000OOOOOOl.
+[0m[32m[1m      '::ccccccccc[0m[33m[1mdOOOOOOOkx:.
+[0m[32m[1m        ..,::cccc[0m[33m[1mxOOOkkko;.
+[0m[32m[1m            ..,:[0m[33m[1mdOkxl:.[0m
+[18A[9999999D
+[?25h[?7h`,
     // @prettier-ignore end
   },
   linux: {
