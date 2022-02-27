@@ -5,3 +5,12 @@ Neofetch for the web. If you'd like to contribute but don't have Git installed o
 
 ## Formatting
 Please don't format the icons. Disable your formatter's "Format on save" feature, and never use a CLI formatter unless you've blacklisted the icons with it. If you format the icons, it'll end up like [#9 (Comment)](https://github.com/hello-smile6/neofetch-js/pull/9#issuecomment-1053123272). Let's avoid that.
+# How to get neofetch
+```
+npm i -g neofetch
+```
+Or:
+```
+npx neofetch
+```
+Use `--ascii_distro` to set what logo you get and use `--logo` to get only the logo.
