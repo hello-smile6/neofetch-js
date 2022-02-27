@@ -150,7 +150,7 @@ Neofetch.getData = function (opts) {
   if (cfg.browser == "Chrome") {
     output +=
       "Icon:\n" +
-      Neofetch.osList.chrome.replaceAll("\n", cfg.lineEnding) +
+      Neofetch.getASCII(cfg.browser, cfg) +
       cfg.lineEnding +
       cfg.lineEnding +
       "We didn't have your OS icon, so we used your browser icon instead." +
