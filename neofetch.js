@@ -1,3 +1,4 @@
+if(window.location.search.includes("debug")) debugger;
 window.Neofetch = {};
 
 // Define environment variables, to align with upstream
@@ -85,6 +86,7 @@ llllllllloMdcccccccccccoWK000000000
 };
 
 Neofetch.getASCII = function (name, cfg) {
+  if(window.location.search.includes("debug")) debugger;
   // loop through the keys in Neofetch.osList
   for (const key in Neofetch.osList) {
     // check if the current key is equal to the key from the osList
@@ -97,6 +99,7 @@ Neofetch.getASCII = function (name, cfg) {
 };
 
 Neofetch.getData = function (opts) {
+  if(window.location.search.includes("debug")) debugger;
   let cfg = {
     os: "Linux", // Assume the most likely
     browser: "", // Sadly, most likely
