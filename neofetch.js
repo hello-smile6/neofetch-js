@@ -1,8 +1,10 @@
+window.Neofetch = {};
+
 // Define environment variables, to align with upstream
-const escapeChar="\u001b"; // Not implemented upstream, just to make the code neater
+Neofetch.escapeCharacter = "\u001b"; // Not implemented upstream, just to make the code neater
 // TODO: add the versions with color, maybe make a script to generate icons array from neofetch as json and add it to the file
 // At least they're recognizable
-const oses={
+Neofetch.osList={
     "windows": `################  ################
 ################  ################
 ################  ################
@@ -36,7 +38,7 @@ llllllllloMdcccccccccccoWK000000000
        ..,::ccccxOOOkkko;.
            ..,:dOkxl:.`,
 };
-const neofetch=function(opts) {
+Neofetch.getData = function(opts) {
     let cfg={
         os: "Linux", // Assume the most likely
         browser: "", // Sadly, most likely
@@ -79,7 +81,6 @@ const neofetch=function(opts) {
 }
 if(typeof process!=="undefined") {
     if(process instanceof EventEmitter) {
-        module.exports={neofetch: neofetch};
+        module.exports = { neofetch: Neofetch };
     }
 }
-// window.neofetch=neofetch;
