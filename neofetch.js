@@ -38,6 +38,8 @@ llllllllloMdcccccccccccoWK000000000
        ..,::ccccxOOOkkko;.
            ..,:dOkxl:.`,
 };
+// Icon aliases
+Neofetch.osList.chromeos=Neofetch.osList.chrome;
 Neofetch.getData = function(opts) {
     let cfg={
         os: "Linux", // Assume the most likely
