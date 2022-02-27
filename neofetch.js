@@ -1,3 +1,10 @@
+if(typeof window=="undefined") {
+  const window={
+    location: {
+      search: "",
+    }
+  };
+}
 if (window.location.search.includes("debug")) debugger;
 window.Neofetch = {};
 
@@ -108,8 +115,8 @@ Neofetch.getASCII = function (name, cfg) {
 Neofetch.getData = function (opts) {
   if (window.location.search.includes("debug")) debugger;
   let cfg = {
-    os: "Linux", // Assume the most likely
-    browser: "", // Sadly, most likely
+    os: "Unknown", // Unknown by default
+    browser: "Unknown", // Unknown by default
     lineEnding: "\n",
   };
   if (typeof window == "object" && typeof Window !== "undefined") {
