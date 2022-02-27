@@ -200,7 +200,9 @@ Neofetch.getData = function (opts) {
       "We didn't have your OS icon, so we used your browser icon instead." +
       cfg.lineEnding;
   }
-  if
+  if(cfg.allowColor==false) {
+    output=Neofetch.fixAnsi(output);
+  }
   return output;
 };
 if (typeof process !== "undefined") {
