@@ -4,6 +4,10 @@ window.Neofetch = {};
 Neofetch.escapeCharacter = "\u001b"; // Not implemented upstream, just to make the code neater
 // TODO: add the versions with color, maybe make a script to generate icons array from neofetch as json and add it to the file
 // At least they're recognizable
+
+/**
+ * Taken from the original Neofetch project
+ */
 Neofetch.osList={
     "windows": `################  ################
 ################  ################
@@ -37,7 +41,7 @@ llllllllloMdcccccccccccoWK000000000
      '::cccccccccdOOOOOOOkx:.
        ..,::ccccxOOOkkko;.
            ..,:dOkxl:.`,
-    linux: `        #####
+    "linux": `        #####
     #######
     ##O#O##
     #######
@@ -48,7 +52,26 @@ llllllllloMdcccccccccccoWK000000000
 #################
 #####################
 #####################
-#################`
+#################`,
+mac: `
+                    'c. 
+                 ,xNMM.
+               .OMMMMo
+               OMMM0,
+     .;loddo:' loolloddol;.
+   cKMMMMMMMMMMNWMMMMMMMMMM0:
+ .KMMMMMMMMMMMMMMMMMMMMMMMWd.
+ XMMMMMMMMMMMMMMMMMMMMMMMX.
+;MMMMMMMMMMMMMMMMMMMMMMMM:
+:MMMMMMMMMMMMMMMMMMMMMMMM:
+.MMMMMMMMMMMMMMMMMMMMMMMMX. 
+ kMMMMMMMMMMMMMMMMMMMMMMMMWd.
+ .XMMMMMMMMMMMMMMMMMMMMMMMMMMk
+  .XMMMMMMMMMMMMMMMMMMMMMMMMK.
+    kMMMMMMMMMMMMMMMMMMMMMMd
+     ;KMMMMMMMWXXWMMMMMMMk.
+       .cooc,.    .,coo:.
+`
 };
 // Icon aliases
 Neofetch.osList.chromeos=Neofetch.osList.chrome;
