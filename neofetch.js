@@ -64,8 +64,7 @@ llllllllloMdcccccccccccoWK000000000
   },
   mac: {
     names: ["Mac", "iOS"],
-    ascii: `
-                    'c. 
+    ascii: `                    'c. 
                  ,xNMM.
                .OMMMMo
                OMMM0,
@@ -86,12 +85,17 @@ llllllllloMdcccccccccccoWK000000000
 };
 
 Neofetch.getASCII = function (name, cfg) {
-  for (let i of Neofetch.osList) {
-    if (i.names.includes(name)) {
-      return i.ascii.replaceAll("\n", cfg.lineEnding)
+  // loop through the keys in Neofetch.osList
+  for (const key in Neofetch.osList) {
+    // check if the current key is equal to the key from the osList
+    if (Neofetch.osList[key].names.includes(name)) {
+      // return the ASCII art
+      console.log()
+      return Neofetch.osList[key].ascii.replaceAll("\n",cfg.lineEnding);
     }
   }
-}
+
+};
 
 Neofetch.getData = function (opts) {
   let cfg = {
@@ -141,46 +145,16 @@ Neofetch.getData = function (opts) {
 
   let output = "";
   // Each output must make sure there is exactly one (1) newline after it.
-  if (cfg.os == "Windows") {
+  output +=
+    "Icon:" + cfg.lineEnding + Neofetch.getASCII(cfg.os, cfg) + cfg.lineEnding;
+  if (cfg.browser == "Chrome") {
     output +=
-      "Icon:" +
+      "Icon:\n" +
+      Neofetch.osList.chrome.replaceAll("\n", cfg.lineEnding) +
       cfg.lineEnding +
-      Neofetch.osList.windows.replaceAll("\n", cfg.lineEnding) +
+      cfg.lineEnding +
+      "We didn't have your OS icon, so we used your browser icon instead." +
       cfg.lineEnding;
-  } else {
-    if (cfg.os == "Linux") {
-      output +=
-        "Icon:" +
-        cfg.lineEnding +
-        Neofetch.osList.linux.replaceAll("\n", cfg.lineEnding) +
-        cfg.lineEnding;
-    } else {
-      if (cfg.os == "Chrome OS") {
-        output +=
-          "Icon:\n" +
-          Neofetch.osList.chrome.replaceAll("\n", cfg.lineEnding) +
-          cfg.lineEnding;
-      } else {
-        if (cfg.browser == "Chrome") {
-          output +=
-            "Icon:\n" +
-            Neofetch.osList.chrome.replaceAll("\n", cfg.lineEnding) +
-            cfg.lineEnding +
-            cfg.lineEnding +
-            "We didn't have your OS icon, so we used your browser icon instead." +
-            cfg.lineEnding;
-        } else {
-          if (cfg.os == "Mac") {
-            output +=
-              "Icon:\n" +
-              Neofetch.osList.mac.replaceAll("\n", cfg.lineEnding) +
-              cfg.lineEnding;
-          } else {
-            output += "Icon: Not Implemented" + cfg.lineEnding;
-          }
-        }
-      }
-    }
   }
   return output;
 };
