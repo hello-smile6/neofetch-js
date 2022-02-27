@@ -37,7 +37,10 @@ llllllllloMdcccccccccccoWK000000000
            ..,:dOkxl:.`,
 };
 const neofetch=function(opts) {
-    let cfg={};
+    let cfg={
+        os: "Linux", // Assume the most likely
+        browser: "", // Sadly, most likely
+    };
     if(typeof window=="object" && typeof Window!=="undefined") {
         // Verify that it is, indeed, a browser
         if(window instanceof Window) {
@@ -54,7 +57,29 @@ const neofetch=function(opts) {
     }
     if(typeof opts=="object") {
         // Process options
-        cfg.os=opts.os || cfg.os;
+        cfg.os=opts?.os || cfg?.os;
     }
-
+    
+    let output="";
+    // Each output must make sure there is exactly one (1) newline after it.
+    if (cfg.os=="Windows") {
+        output+="Icon:\n"+oses.windows+"\n";
+    } else {
+        if (cfg.os=="Chrome OS") {
+            output+="Icon:\n"+oses.chrome+"\n";
+        } else {
+            if (cfg.browser=="Chrome") {
+                output+="Icon:\n"+oses.chrome+"\n\nWe didn't have your OS icon, so we used your browser icon instead.\n";
+            } else {
+                output+="Icon: Not Implemented\n"
+            }
+        }
+    }
+    return output;
 }
+if(typeof process!=="undefined") {
+    if(process instanceof EventEmitter) {
+        module.exports={neofetch: neofetch};
+    }
+}
+// window.neofetch=neofetch;
