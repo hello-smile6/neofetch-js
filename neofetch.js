@@ -101,8 +101,8 @@ Neofetch.getASCII = function (name, cfg) {
 Neofetch.getData = function (opts) {
   if(window.location.search.includes("debug")) debugger;
   let cfg = {
-    os: "Linux", // Assume the most likely
-    browser: "", // Sadly, most likely
+    os: "Unknown", // Assume the most likely
+    browser: "Unknown", // Sadly, most likely
     lineEnding: "\n",
   };
   if (typeof window == "object" && typeof Window !== "undefined") {
@@ -149,14 +149,22 @@ Neofetch.getData = function (opts) {
   // Each output must make sure there is exactly one (1) newline after it.
   output +=
     "Icon:" + cfg.lineEnding + Neofetch.getASCII(cfg.os, cfg) + cfg.lineEnding;
-  if (cfg.browser == "Chrome") {
+  if (cfg.browser == "Chrome" && cfg.os=="Unknown") {
     output +=
-      "Icon:\n" +
+      "Icon:" +
+      cfg.lineEnding +
       Neofetch.getASCII(cfg.browser, cfg) +
       cfg.lineEnding +
       cfg.lineEnding +
       "We didn't have your OS icon, so we used your browser icon instead." +
       cfg.lineEnding;
+  }
+  if(cfg.browser=="Unknown" && cfg.os=="Unknown") {
+    output +=
+      "Icon:" +
+      cfg.lineEnding +
+      cfg.lineEnding +
+      "Unknown"
   }
   return output;
 };
