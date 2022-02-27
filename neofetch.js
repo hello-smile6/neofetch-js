@@ -93,11 +93,12 @@ Neofetch.getData = function(opts) {
                     cfg.os="Chrome OS"; // Don't worry about browser, that'll be done later in the script
                 }
                 else {
-                    cfg.os="Linux";
+                    if (navigator.userAgent.includes("Macintosh") && navigator.userAgent.includes("Mac OS")) {
+                      cfg.os = "Mac"
+                    }
                 }
             }
             if(navigator?.vendor=="Google Inc.") cfg.browser="Chrome";
-
         }
     }
     if(typeof opts=="object") {
@@ -121,7 +122,11 @@ Neofetch.getData = function(opts) {
                 if (cfg.browser=="Chrome") {
                     output+="Icon:\n"+Neofetch.osList.chrome.replaceAll("\n",cfg.lineEnding)+cfg.lineEnding+cfg.lineEnding+"We didn't have your OS icon, so we used your browser icon instead."+cfg.lineEnding;
                 } else {
+                  if (cfg.os == "Mac") {
+                    output+="Icon:\n"+Neofetch.osList.mac.replaceAll("\n",cfg.lineEnding)+cfg.lineEnding;
+                  } else {
                     output+="Icon: Not Implemented"+cfg.lineEnding;
+                  }
                 }
             }
         }
