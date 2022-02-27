@@ -58,9 +58,9 @@ const neofetch=function(opts) {
     }
     if(typeof opts=="object") {
         // Process options
-        cfg.os=opts?.os || cfg?.os;
-        cfg.browser=opts?.browser || cfg?.browser;
-        cfg.lineEnding=opts?.lineEnding || cfg?.lineEnding;
+        if(typeof opts?.os=="string") cfg.os=opts.os;
+        if(typeof opts?.browser=="string") cfg.browser=opts.browser;
+        if(typeof opts?.lineEnding=="string") cfg.lineEnding=opts.lineEnding;
     }
     
     let output="";
