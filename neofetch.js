@@ -93,7 +93,18 @@ Neofetch.getData = function(opts) {
                     cfg.os="Chrome OS"; // Don't worry about browser, that'll be done later in the script
                 }
                 else {
+                  // Mac detection
                     if (navigator.userAgent.includes("Macintosh") && navigator.userAgent.includes("Mac OS")) {
+                      cfg.os = "Mac"
+                    }
+                  // iOS detection
+                    if (navigator.userAgent.includes("iPhone OS")) {
+                      // They give the same logo so it doesn't matter
+                      cfg.os = "Mac"
+                    }
+                  // iPadOS detection
+                    if (navigator.userAgent.includes("iPad")) {
+                      // They give the same logo so it doesn't matter
                       cfg.os = "Mac"
                     }
                 }
