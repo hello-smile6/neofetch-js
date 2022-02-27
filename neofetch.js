@@ -84,6 +84,15 @@ llllllllloMdcccccccccccoWK000000000
        .cooc,.    .,coo:.`,
   },
 };
+
+Neofetch.getASCII = function (name, cfg) {
+  for (let i of Neofetch.osList) {
+    if (i.names.includes(name)) {
+      return i.ascii.replaceAll("\n", cfg.lineEnding)
+    }
+  }
+}
+
 Neofetch.getData = function (opts) {
   let cfg = {
     os: "Linux", // Assume the most likely
