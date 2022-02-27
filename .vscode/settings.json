@@ -1,4 +1,8 @@
 {
     "editor.formatOnSaveMode": "modificationsIfAvailable",
-    "editor.formatOnPaste": false
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+    "html.format.endWithNewline": true,
+    "html.format.indentInnerHtml": true
 }
