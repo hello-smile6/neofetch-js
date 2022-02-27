@@ -10,6 +10,7 @@ Neofetch.escapeCharacter = "\u001b"; // Not implemented upstream, just to make t
  */
 Neofetch.osList = {
   windows: {
+    names: ["Windows"],
     ascii: `################  ################
     ################  ################
     ################  ################
@@ -27,6 +28,7 @@ Neofetch.osList = {
     ################  ################`,
   }, // Don't bother detecting different Windows versions, show them all as win11 for now (Would accept PR)
   chrome: {
+    names: ["Chrome", "Chrome OS"],
     ascii: `        .,coooooooooooooc,.
     .,lllllllllllllllllllll,.
    ;ccccccccccccccccccccccccc;
@@ -46,6 +48,7 @@ llllllllloMdcccccccccccoWK000000000
            ..,:dOkxl:.`,
   },
   linux: {
+    names: ["Linux"],
     ascii: `        #####
     #######
     ##O#O##
@@ -60,6 +63,7 @@ llllllllloMdcccccccccccoWK000000000
 #################`,
   },
   mac: {
+    names: ["Mac", "iOS"],
     ascii: `
                     'c. 
                  ,xNMM.
