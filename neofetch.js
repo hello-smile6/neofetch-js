@@ -102,6 +102,7 @@ llllllllloMdcccccccccccoWK000000000
     names: ["Unknown"],
     // @prettier-ignore start
     ascii: `?`
+    // @prettier-ignore-end
   }
 };
 
