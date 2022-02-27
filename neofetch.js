@@ -4,6 +4,10 @@ window.Neofetch = {};
 Neofetch.escapeCharacter = "\u001b"; // Not implemented upstream, just to make the code neater
 // TODO: add the versions with color, maybe make a script to generate icons array from neofetch as json and add it to the file
 // At least they're recognizable
+
+/**
+ * Taken from the original Neofetch project
+ */
 Neofetch.osList={
     "windows": `################  ################
 ################  ################
@@ -37,7 +41,7 @@ llllllllloMdcccccccccccoWK000000000
      '::cccccccccdOOOOOOOkx:.
        ..,::ccccxOOOkkko;.
            ..,:dOkxl:.`,
-    linux: `        #####
+    "linux": `        #####
     #######
     ##O#O##
     #######
@@ -48,7 +52,26 @@ llllllllloMdcccccccccccoWK000000000
 #################
 #####################
 #####################
-#################`
+#################`,
+mac: `
+                    'c. 
+                 ,xNMM.
+               .OMMMMo
+               OMMM0,
+     .;loddo:' loolloddol;.
+   cKMMMMMMMMMMNWMMMMMMMMMM0:
+ .KMMMMMMMMMMMMMMMMMMMMMMMWd.
+ XMMMMMMMMMMMMMMMMMMMMMMMX.
+;MMMMMMMMMMMMMMMMMMMMMMMM:
+:MMMMMMMMMMMMMMMMMMMMMMMM:
+.MMMMMMMMMMMMMMMMMMMMMMMMX. 
+ kMMMMMMMMMMMMMMMMMMMMMMMMWd.
+ .XMMMMMMMMMMMMMMMMMMMMMMMMMMk
+  .XMMMMMMMMMMMMMMMMMMMMMMMMK.
+    kMMMMMMMMMMMMMMMMMMMMMMd
+     ;KMMMMMMMWXXWMMMMMMMk.
+       .cooc,.    .,coo:.
+`
 };
 // Icon aliases
 Neofetch.osList.chromeos=Neofetch.osList.chrome;
@@ -70,11 +93,12 @@ Neofetch.getData = function(opts) {
                     cfg.os="Chrome OS"; // Don't worry about browser, that'll be done later in the script
                 }
                 else {
-                    cfg.os="Linux";
+                    if (navigator.userAgent.includes("Macintosh") && navigator.userAgent.includes("Mac OS")) {
+                      cfg.os = "Mac"
+                    }
                 }
             }
             if(navigator?.vendor=="Google Inc.") cfg.browser="Chrome";
-
         }
     }
     if(typeof opts=="object") {
@@ -98,7 +122,11 @@ Neofetch.getData = function(opts) {
                 if (cfg.browser=="Chrome") {
                     output+="Icon:\n"+Neofetch.osList.chrome.replaceAll("\n",cfg.lineEnding)+cfg.lineEnding+cfg.lineEnding+"We didn't have your OS icon, so we used your browser icon instead."+cfg.lineEnding;
                 } else {
+                  if (cfg.os == "Mac") {
+                    output+="Icon:\n"+Neofetch.osList.mac.replaceAll("\n",cfg.lineEnding)+cfg.lineEnding;
+                  } else {
                     output+="Icon: Not Implemented"+cfg.lineEnding;
+                  }
                 }
             }
         }
