@@ -105,6 +105,7 @@ llllllllloMdcccccccccccoWK000000000
     // @prettier-ignore end
   }
 };
+// <<<<<<< main
 
 Neofetch.getASCII = function (name, cfg) {
   if (window.location.search.includes("debug")) debugger;
@@ -116,7 +117,25 @@ Neofetch.getASCII = function (name, cfg) {
       return Neofetch.osList[key].ascii.replaceAll("\n", cfg.lineEnding);
     }
   }
-};
+}
+// Icon aliases
+Neofetch.osList.chromeos=Neofetch.osList.chrome;
+Neofetch.ansiRegex=function({onlyFirst = false} = {}) {
+    const pattern = [
+      '[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]+)*|[a-zA-Z\\d]+(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]*)*)?\\u0007)',
+      '(?:(?:\\d{1,4}(?:;\\d{0,4})*)?[\\dA-PR-TZcf-ntqry=><~]))'
+    ].join('|');
+    return new RegExp(pattern, onlyFirst ? undefined : 'g');
+}
+Neofetch.fixAnsi=function(data) {
+    if (typeof string !== 'string') {
+      throw new TypeError(`Expected a \`string\`, got \`${typeof string}\``);
+    }
+    return string.replaceAll(ansiRegex(), ''); // Seems like Node doesn't have replaceAll(), but browsers do. May be a compat issue in the end.
+}
+    // }
+  // }
+// };
 
 Neofetch.getData = function (opts) {
   if (window.location.search.includes("debug")) debugger;
@@ -124,6 +143,7 @@ Neofetch.getData = function (opts) {
     os: "Unknown", // Unknown by default
     browser: "Unknown", // Unknown by default
     lineEnding: "\n",
+    allowColor: false, // Disable color by default
   };
   if (typeof window == "object" && typeof Window !== "undefined") {
     // Verify that it is, indeed, a browser
