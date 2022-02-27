@@ -98,6 +98,11 @@ llllllllloMdcccccccccccoWK000000000
        .cooc,.    .,coo:.`,
     // @prettier-ignore end
   },
+  unknown: {
+    names: ["Unknown"],
+    // @prettier-ignore start
+    ascii: `?`
+  }
 };
 
 Neofetch.getASCII = function (name, cfg) {
