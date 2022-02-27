@@ -90,7 +90,6 @@ Neofetch.getASCII = function (name, cfg) {
     // check if the current key is equal to the key from the osList
     if (Neofetch.osList[key].names.includes(name)) {
       // return the ASCII art
-      console.log()
       return Neofetch.osList[key].ascii.replaceAll("\n",cfg.lineEnding);
     }
   }
