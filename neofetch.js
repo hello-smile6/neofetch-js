@@ -37,6 +37,18 @@ llllllllloMdcccccccccccoWK000000000
      '::cccccccccdOOOOOOOkx:.
        ..,::ccccxOOOkkko;.
            ..,:dOkxl:.`,
+    linux: `        #####
+    #######
+    ##O#O##
+    #######
+  ###########
+ #############
+###############
+################
+#################
+#####################
+#####################
+#################`
 };
 // Icon aliases
 Neofetch.osList.chromeos=Neofetch.osList.chrome;
@@ -54,7 +66,12 @@ Neofetch.getData = function(opts) {
             if(navigator?.platform?.startsWith("Linux ")) cfg.os="Linux";
             if(cfg?.os=="Linux") {
                 // Detect Chrome OS, which will identify as Linux
-                if(navigator?.userAgent?.includes("CrOS")) cfg.os="Chrome OS"; // Don't worry about browser, that'll be done later in the script
+                if(navigator?.userAgent?.includes("CrOS")) {
+                    cfg.os="Chrome OS"; // Don't worry about browser, that'll be done later in the script
+                }
+                else {
+                    cfg.os="Linux";
+                }
             }
             if(navigator?.vendor=="Google Inc.") cfg.browser="Chrome";
 
@@ -72,13 +89,17 @@ Neofetch.getData = function(opts) {
     if (cfg.os=="Windows") {
         output+="Icon:"+cfg.lineEnding+Neofetch.osList.windows.replaceAll("\n",cfg.lineEnding)+cfg.lineEnding;
     } else {
-        if (cfg.os=="Chrome OS") {
-            output+="Icon:\n"+Neofetch.osList.chrome.replaceAll("\n",cfg.lineEnding)+cfg.lineEnding;
+        if (cfg.os=="Linux") {
+            output+="Icon:"+cfg.lineEnding+Neofetch.osList.linux.replaceAll("\n",cfg.lineEnding)+cfg.lineEnding;
         } else {
-            if (cfg.browser=="Chrome") {
-                output+="Icon:\n"+Neofetch.osList.chrome.replaceAll("\n",cfg.lineEnding)+cfg.lineEnding+cfg.lineEnding+"We didn't have your OS icon, so we used your browser icon instead."+cfg.lineEnding;
+            if (cfg.os=="Chrome OS") {
+            output+="Icon:\n"+Neofetch.osList.chrome.replaceAll("\n",cfg.lineEnding)+cfg.lineEnding;
             } else {
-                output+="Icon: Not Implemented"+cfg.lineEnding;
+                if (cfg.browser=="Chrome") {
+                    output+="Icon:\n"+Neofetch.osList.chrome.replaceAll("\n",cfg.lineEnding)+cfg.lineEnding+cfg.lineEnding+"We didn't have your OS icon, so we used your browser icon instead."+cfg.lineEnding;
+                } else {
+                    output+="Icon: Not Implemented"+cfg.lineEnding;
+                }
             }
         }
     }
