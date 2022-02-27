@@ -179,9 +179,6 @@ Neofetch.getData = function (opts) {
       "We didn't have your OS icon, so we used your browser icon instead." +
       cfg.lineEnding;
   }
-  if (cfg.browser == "Unknown" && cfg.os == "Unknown") {
-    output += "Icon:" + cfg.lineEnding + cfg.lineEnding + "Unknown";
-  }
   return output;
 };
 if (typeof process !== "undefined") {
