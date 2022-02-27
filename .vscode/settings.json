@@ -1,3 +1,4 @@
 {
-    "editor.formatOnSaveMode": "modificationsIfAvailable"
+    "editor.formatOnSaveMode": "modificationsIfAvailable",
+    "editor.formatOnPaste": false
 }
