@@ -1,4 +1,4 @@
-if(window.location.search.includes("debug")) debugger;
+if (window.location.search.includes("debug")) debugger;
 window.Neofetch = {};
 
 // Define environment variables, to align with upstream
@@ -30,6 +30,7 @@ Neofetch.osList = {
   }, // Don't bother detecting different Windows versions, show them all as win11 for now (Would accept PR)
   chrome: {
     names: ["Chrome", "Chrome OS"],
+    // @prettier-ignore start
     ascii: `        .,coooooooooooooc,.
     .,lllllllllllllllllllll,.
    ;ccccccccccccccccccccccccc;
@@ -47,9 +48,11 @@ llllllllloMdcccccccccccoWK000000000
      '::cccccccccdOOOOOOOkx:.
        ..,::ccccxOOOkkko;.
            ..,:dOkxl:.`,
+    // @prettier-ignore end
   },
   linux: {
     names: ["Linux"],
+    // @prettier-ignore start
     ascii: `        #####
        #######
        ##O#O##
@@ -62,9 +65,11 @@ llllllllloMdcccccccccccoWK000000000
 #####################
 #####################
   #################`,
+    // @prettier-ignore end
   },
   mac: {
     names: ["Mac", "iOS"],
+    // @prettier-ignore start
     ascii: `                    'c. 
                  ,xNMM.
                .OMMMMo
@@ -82,24 +87,24 @@ llllllllloMdcccccccccccoWK000000000
     kMMMMMMMMMMMMMMMMMMMMMMd
      ;KMMMMMMMWXXWMMMMMMMk.
        .cooc,.    .,coo:.`,
-  }
+    // @prettier-ignore end
+  },
 };
 
 Neofetch.getASCII = function (name, cfg) {
-  if(window.location.search.includes("debug")) debugger;
+  if (window.location.search.includes("debug")) debugger;
   // loop through the keys in Neofetch.osList
   for (const key in Neofetch.osList) {
     // check if the current key is equal to the key from the osList
     if (Neofetch.osList[key].names.includes(name)) {
       // return the ASCII art
-      return Neofetch.osList[key].ascii.replaceAll("\n",cfg.lineEnding);
+      return Neofetch.osList[key].ascii.replaceAll("\n", cfg.lineEnding);
     }
   }
-
 };
 
 Neofetch.getData = function (opts) {
-  if(window.location.search.includes("debug")) debugger;
+  if (window.location.search.includes("debug")) debugger;
   let cfg = {
     os: "Unknown", // Assume the most likely
     browser: "Unknown", // Sadly, most likely
@@ -149,7 +154,7 @@ Neofetch.getData = function (opts) {
   // Each output must make sure there is exactly one (1) newline after it.
   output +=
     "Icon:" + cfg.lineEnding + Neofetch.getASCII(cfg.os, cfg) + cfg.lineEnding;
-  if (cfg.browser == "Chrome" && cfg.os=="Unknown") {
+  if (cfg.browser == "Chrome" && cfg.os == "Unknown") {
     output +=
       "Icon:" +
       cfg.lineEnding +
@@ -159,12 +164,8 @@ Neofetch.getData = function (opts) {
       "We didn't have your OS icon, so we used your browser icon instead." +
       cfg.lineEnding;
   }
-  if(cfg.browser=="Unknown" && cfg.os=="Unknown") {
-    output +=
-      "Icon:" +
-      cfg.lineEnding +
-      cfg.lineEnding +
-      "Unknown"
+  if (cfg.browser == "Unknown" && cfg.os == "Unknown") {
+    output += "Icon:" + cfg.lineEnding + cfg.lineEnding + "Unknown";
   }
   return output;
 };
