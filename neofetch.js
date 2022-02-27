@@ -9,22 +9,25 @@ Neofetch.escapeCharacter = "\u001b"; // Not implemented upstream, just to make t
  * Taken from the original Neofetch project
  */
 Neofetch.osList = {
-  windows: `################  ################
-################  ################
-################  ################
-################  ################
-################  ################
-################  ################
-################  ################
-                                  
-################  ################
-################  ################
-################  ################
-################  ################
-################  ################
-################  ################
-################  ################`, // Don't bother detecting different Windows versions, show them all as win11 for now (Would accept PR)
-  chrome: `        .,coooooooooooooc,.
+  windows: {
+    ascii: `################  ################
+    ################  ################
+    ################  ################
+    ################  ################
+    ################  ################
+    ################  ################
+    ################  ################
+                                      
+    ################  ################
+    ################  ################
+    ################  ################
+    ################  ################
+    ################  ################
+    ################  ################
+    ################  ################`,
+  }, // Don't bother detecting different Windows versions, show them all as win11 for now (Would accept PR)
+  chrome: {
+    ascii: `        .,coooooooooooooc,.
     .,lllllllllllllllllllll,.
    ;ccccccccccccccccccccccccc;
  'ccccccccccccccccccccccccccccc.
@@ -41,7 +44,9 @@ llllllllloMdcccccccccccoWK000000000
      '::cccccccccdOOOOOOOkx:.
        ..,::ccccxOOOkkko;.
            ..,:dOkxl:.`,
-  linux: `        #####
+  },
+  linux: {
+    ascii: `        #####
     #######
     ##O#O##
     #######
@@ -53,7 +58,9 @@ llllllllloMdcccccccccccoWK000000000
 #####################
 #####################
 #################`,
-  mac: `
+  },
+  mac: {
+    ascii: `
                     'c. 
                  ,xNMM.
                .OMMMMo
@@ -72,6 +79,7 @@ llllllllloMdcccccccccccoWK000000000
      ;KMMMMMMMWXXWMMMMMMMk.
        .cooc,.    .,coo:.
 `,
+  },
 };
 // Icon aliases
 Neofetch.osList.chromeos = Neofetch.osList.chrome;
