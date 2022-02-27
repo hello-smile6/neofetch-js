@@ -108,8 +108,8 @@ Neofetch.getASCII = function (name, cfg) {
 Neofetch.getData = function (opts) {
   if (window.location.search.includes("debug")) debugger;
   let cfg = {
-    os: "Unknown", // Assume the most likely
-    browser: "Unknown", // Sadly, most likely
+    os: "Linux", // Assume the most likely
+    browser: "", // Sadly, most likely
     lineEnding: "\n",
   };
   if (typeof window == "object" && typeof Window !== "undefined") {
