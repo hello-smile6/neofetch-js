@@ -81,7 +81,7 @@ llllllllloMdcccccccccccoWK000000000
     kMMMMMMMMMMMMMMMMMMMMMMd
      ;KMMMMMMMWXXWMMMMMMMk.
        .cooc,.    .,coo:.`,
-  },
+  }
 };
 
 Neofetch.getASCII = function (name, cfg) {

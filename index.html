@@ -10,25 +10,36 @@
         https://counter.dev/
         https://github.com/ihucos/counter.dev
     -->
-    <script>if(
-        !sessionStorage.getItem("_swa")&&
-        document.referrer.indexOf(location.protocol+"//"+location.host)!== 0
-        ){
-            fetch("https://counter.dev/track?"+new URLSearchParams({
-                referrer:document.referrer,
-                screen:screen.width+"x"+screen.height,
-                user:"9pfs",
-                utcoffset:"-8"
-            }))
-            .catch(function() {
-                fetch("https://cors-anywhere.9pfs.repl.co/counter.dev/track?"+new URLSearchParams({ // I get why people don't want analytics, but I need data...
-                referrer:document.referrer,
-                screen:screen.width+"x"+screen.height,
-                user:"9pfs",
-                utcoffset:"-8"
-            })).catch(function() {
-                sessionStorage.removeItem("_swa"); // Send data next time
-            })
+    <script>
+        if(
+            location.hostname.endsWith(".local") || 
+            (
+                location.port !== 80 &&
+                location.port !== 433
+            ) || 
+            location.hostname.endsWith(".lan") || 
+            !(location.hostname.includes("."))
+        ) {
+            throw new Error("Refusing to log data from non-public webserver, see https://github.com/ihucos/counter.dev/issues/59");
+        }
+        if(!sessionStorage.getItem("_swa")&&
+            document.referrer.indexOf(location.protocol+"//"+location.host)!== 0
+            ){
+                fetch("https://counter.dev/track?"+new URLSearchParams({
+                    referrer:document.referrer,
+                    screen:screen.width+"x"+screen.height,
+                    user:"9pfs",
+                    utcoffset:"-8"
+                }))
+                .catch(function() {
+                    fetch("https://cors-anywhere.9pfs.repl.co/counter.dev/track?"+new URLSearchParams({ // I get why people don't want analytics, but I need data...
+                    referrer:document.referrer,
+                    screen:screen.width+"x"+screen.height,
+                    user:"9pfs",
+                    utcoffset:"-8"
+                })).catch(function() {
+                    sessionStorage.removeItem("_swa"); // Send data next time
+                })
             })
         };
         sessionStorage.setItem("_swa","1");
