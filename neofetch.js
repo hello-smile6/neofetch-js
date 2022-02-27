@@ -1,8 +1,8 @@
-if(typeof window=="undefined") {
-  const window={
+if (typeof window == "undefined") {
+  const window = {
     location: {
       search: "",
-    }
+    },
   };
 }
 if (window.location.search.includes("debug")) debugger;
@@ -35,7 +35,7 @@ Neofetch.osList = {
 ################  ################
 ################  ################
 ################  ################`,
-// @prettier-ignore end
+    // @prettier-ignore end
   }, // Don't bother detecting different Windows versions, show them all as win11 for now (Would accept PR)
   chrome: {
     names: ["Chrome", "Chrome OS"],
@@ -101,9 +101,9 @@ llllllllloMdcccccccccccoWK000000000
   unknown: {
     names: ["Unknown"],
     // @prettier-ignore start
-    ascii: `?`
+    ascii: `?`,
     // @prettier-ignore end
-  }
+  },
 };
 // <<<<<<< main
 
@@ -117,24 +117,24 @@ Neofetch.getASCII = function (name, cfg) {
       return Neofetch.osList[key].ascii.replaceAll("\n", cfg.lineEnding);
     }
   }
-}
+};
 // Icon aliases
-Neofetch.osList.chromeos=Neofetch.osList.chrome;
-Neofetch.ansiRegex=function({onlyFirst = false} = {}) {
-    const pattern = [
-      '[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]+)*|[a-zA-Z\\d]+(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]*)*)?\\u0007)',
-      '(?:(?:\\d{1,4}(?:;\\d{0,4})*)?[\\dA-PR-TZcf-ntqry=><~]))'
-    ].join('|');
-    return new RegExp(pattern, onlyFirst ? undefined : 'g');
-}
-Neofetch.fixAnsi=function(data) {
-    if (typeof string !== 'string') {
-      throw new TypeError(`Expected a \`string\`, got \`${typeof string}\``);
-    }
-    return string.replaceAll(ansiRegex(), ''); // Seems like Node doesn't have replaceAll(), but browsers do. May be a compat issue in the end.
-}
-    // }
-  // }
+Neofetch.osList.chromeos = Neofetch.osList.chrome;
+Neofetch.ansiRegex = function ({ onlyFirst = false } = {}) {
+  const pattern = [
+    "[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]+)*|[a-zA-Z\\d]+(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]*)*)?\\u0007)",
+    "(?:(?:\\d{1,4}(?:;\\d{0,4})*)?[\\dA-PR-TZcf-ntqry=><~]))",
+  ].join("|");
+  return new RegExp(pattern, onlyFirst ? undefined : "g");
+};
+Neofetch.fixAnsi = function (data) {
+  if (typeof string !== "string") {
+    throw new TypeError(`Expected a \`string\`, got \`${typeof string}\``);
+  }
+  return string.replaceAll(ansiRegex(), ""); // Seems like Node doesn't have replaceAll(), but browsers do. May be a compat issue in the end.
+};
+// }
+// }
 // };
 
 Neofetch.getData = function (opts) {
@@ -155,24 +155,24 @@ Neofetch.getData = function (opts) {
         // Detect Chrome OS, which will identify as Linux
         if (navigator?.userAgent?.includes("CrOS")) {
           cfg.os = "Chrome OS"; // Don't worry about browser, that'll be done later in the script
-        } else {
-          // Mac detection
-          if (
-            navigator?.userAgent?.includes("Macintosh") &&
-            navigator?.userAgent?.includes("Mac OS")
-          ) {
-            cfg.os = "Mac";
-          }
-          // iOS detection
-          if (navigator?.userAgent?.includes("iPhone OS")) {
-            // They give the same logo so it doesn't matter
-            cfg.os = "Mac";
-          }
-          // iPadOS detection
-          if (navigator?.userAgent?.includes("iPad")) {
-            // They give the same logo so it doesn't matter
-            cfg.os = "Mac";
-          }
+        }
+      } else {
+        // Mac detection
+        if (
+          navigator?.userAgent?.includes("Macintosh") &&
+          navigator?.userAgent?.includes("Mac OS")
+        ) {
+          cfg.os = "Mac";
+        }
+        // iOS detection
+        if (navigator?.userAgent?.includes("iPhone OS")) {
+          // They give the same logo so it doesn't matter
+          cfg.os = "Mac";
+        }
+        // iPadOS detection
+        if (navigator?.userAgent?.includes("iPad")) {
+          // They give the same logo so it doesn't matter
+          cfg.os = "Mac";
         }
       }
       if (navigator?.vendor == "Google Inc.") cfg.browser = "Chrome";
