@@ -66,15 +66,15 @@ const neofetch=function(opts) {
     let output="";
     // Each output must make sure there is exactly one (1) newline after it.
     if (cfg.os=="Windows") {
-        output+="Icon:"+lineEnding+oses.windows.replaceAll("\n",lineEnding)+lineEnding;
+        output+="Icon:"+cfg.lineEnding+oses.windows.replaceAll("\n",lineEnding)+cfg.lineEnding;
     } else {
         if (cfg.os=="Chrome OS") {
-            output+="Icon:\n"+oses.chrome.replaceAll("\n",lineEnding)+lineEnding;
+            output+="Icon:\n"+oses.chrome.replaceAll("\n",lineEnding)+cfg.lineEnding;
         } else {
             if (cfg.browser=="Chrome") {
-                output+="Icon:\n"+oses.chrome.replaceAll("\n",lineEnding)+lineEnding+lineEnding+"We didn't have your OS icon, so we used your browser icon instead."+lineEnding;
+                output+="Icon:\n"+oses.chrome.replaceAll("\n",lineEnding)+cfg.lineEnding+cfg.lineEnding+"We didn't have your OS icon, so we used your browser icon instead."+cfg.lineEnding;
             } else {
-                output+="Icon: Not Implemented"+lineEnding;
+                output+="Icon: Not Implemented"+cfg.lineEnding;
             }
         }
     }
