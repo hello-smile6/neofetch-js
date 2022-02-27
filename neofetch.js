@@ -12,6 +12,7 @@ Neofetch.escapeCharacter = "\u001b"; // Not implemented upstream, just to make t
 Neofetch.osList = {
   windows: {
     names: ["Windows"],
+    // @prettier-ignore start
     ascii: `################  ################
 ################  ################
 ################  ################
@@ -27,6 +28,7 @@ Neofetch.osList = {
 ################  ################
 ################  ################
 ################  ################`,
+// @prettier-ignore end
   }, // Don't bother detecting different Windows versions, show them all as win11 for now (Would accept PR)
   chrome: {
     names: ["Chrome", "Chrome OS"],
