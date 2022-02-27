@@ -70,8 +70,7 @@ mac: `
   .XMMMMMMMMMMMMMMMMMMMMMMMMK.
     kMMMMMMMMMMMMMMMMMMMMMMd
      ;KMMMMMMMWXXWMMMMMMMk.
-       .cooc,.    .,coo:.
-`
+       .cooc,.    .,coo:.`
 };
 // Icon aliases
 Neofetch.osList.chromeos=Neofetch.osList.chrome;
