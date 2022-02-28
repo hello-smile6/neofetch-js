@@ -118,9 +118,10 @@ Neofetch.osList = {
 // <<<<<<< main
 
 Neofetch.getASCII = function (name, cfg) {
+  "use strict";
   if (window.location.search.includes("debug")) debugger;
   // loop through the keys in Neofetch.osList
-  for (const key in Neofetch.osList) {
+  for (let key in Neofetch.osList) {
     // check if the current key is equal to the key from the osList
     if (Neofetch.osList[key].names.includes(name)) {
       // return the ASCII art
